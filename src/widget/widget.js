@@ -4,9 +4,9 @@ import ChatFloatingButton from './chat-floating-button';
 import ChatTitleMsg from './chat-title-msg';
 import ArrowIcon from './arrow-icon';
 import {
-    desktopTitleStyle, 
+    desktopTitleStyle,
     desktopWrapperStyle,
-    mobileOpenWrapperStyle, 
+    mobileOpenWrapperStyle,
     mobileClosedWrapperStyle,
     desktopClosedWrapperStyleChat
 } from "./style";
@@ -31,7 +31,7 @@ export default class Widget extends Component {
             wrapperStyle = { ...mobileClosedWrapperStyle}; // closed mobile floating button
         } else if (!isMobile){
             wrapperStyle = (conf.closedStyle === 'chat' || isChatOpen || this.wasChatOpened()) ?
-                (isChatOpen) ? 
+                (isChatOpen) ?
                     { ...desktopWrapperStyle, ...wrapperWidth} // desktop mode, button style
                     :
                     { ...desktopWrapperStyle}

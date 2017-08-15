@@ -85,7 +85,7 @@ html, body {
     -moz-user-select: none;
     -ms-user-select: none;
 }
-
+/*
 ::-webkit-scrollbar {
     min-width: 12px;
     width: 12px;
@@ -117,16 +117,16 @@ html, body {
 ::-webkit-scrollbar-button {
     display: block;
     height: 24px;
-}
+}*/
 
 /* I N P U T */
 
 input.textarea {
     position: fixed;
-    bottom: 14px;
+    bottom: 0;
     left: 0;
     right: 0;
-    width: 95%;
+    width: 100%;
     height: 30px;
     z-index: 99;
     background: #fafafa;
@@ -139,7 +139,7 @@ input.textarea {
 }
 
 
-a.banner {
+/*a.banner {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -155,4 +155,4 @@ a.banner {
     text-align: right;
     font-weight: 200;
     text-decoration: none
-}
+}*/
