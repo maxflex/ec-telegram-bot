@@ -34,7 +34,7 @@ export default class Widget extends Component {
                 (isChatOpen) ?
                     { ...desktopWrapperStyle, ...wrapperWidth} // desktop mode, button style
                     :
-                    { ...desktopWrapperStyle}
+                    { ...desktopWrapperStyle, ...{display: 'none'}} // @custom
                 :
                 { ...desktopClosedWrapperStyleChat}; // desktop mode, chat style
         } else {
