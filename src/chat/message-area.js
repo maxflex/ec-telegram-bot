@@ -20,11 +20,13 @@ export default class MessageArea extends Component {
                 {props.messages.map(({name, text, from, time}) => {
                     if (from === 'visitor') {
                         name = "Вы";
+                    } else {
+                        name = "Администратор";
                     }
                     return (
                         <li class={from}>
                             <div class="msg">
-                                <p>{name ? 'Администратор: ' + text : text}</p>
+                                <p>{name ? name + ': ' + text : text}</p>
                                 { (props.conf.displayMessageTime) ?
                                     <div class="time">
                                         {
