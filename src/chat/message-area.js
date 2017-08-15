@@ -19,12 +19,12 @@ export default class MessageArea extends Component {
             <ol class="chat">
                 {props.messages.map(({name, text, from, time}) => {
                     if (from === 'visitor') {
-                        name = "You";
+                        name = "Вы";
                     }
                     return (
                         <li class={from}>
                             <div class="msg">
-                                <p>{name ? name + ': ' + text : text}</p>
+                                <p>{name ? 'Администратор: ' + text : text}</p>
                                 { (props.conf.displayMessageTime) ?
                                     <div class="time">
                                         {
@@ -32,7 +32,7 @@ export default class MessageArea extends Component {
                                                 dateFormat(time, "HH:MM") :
                                                 dateFormat(time, "m/d/yy HH:MM")
                                         }
-                                    </div> 
+                                    </div>
                                     :
                                     ''
                                 }
