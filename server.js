@@ -17,7 +17,8 @@ console.log(process.env.TELEGRAM_TOKEN)
 app.post('/hook', function(req, res){
     try {
         const message = req.body.message || req.body.channel_post;
-        const chatId = message.chat.id;
+        // const chatId = message.chat.id;
+        const chatId = '84626120';
         const name = message.chat.first_name || message.chat.title || "admin";
         const text = message.text || "";
         const reply = message.reply_to_message;
@@ -25,9 +26,7 @@ app.post('/hook', function(req, res){
         if (text.startsWith("/start")) {
             console.log("/start chatId " + chatId);
             sendTelegramMessage(chatId,
-                "*Welcome to Intergram* \n" +
-                "Your unique chat id is `" + chatId + "`\n" +
-                "Use it to link between the embedded chat and this telegram chat",
+                "*Добро пожаловать в бот ЕГЭ-Центра*",
                 "Markdown");
         } else if (reply) {
             let replyText = reply.text || "";
