@@ -18,7 +18,6 @@ app.post('/hook', function(req, res){
     try {
         const message = req.body.message || req.body.channel_post;
         const chatId = message.chat.id;
-        // const chatId = process.env.CHAT_ID;
         const name = message.chat.first_name || message.chat.title || "admin";
         const text = message.text || "";
         const reply = message.reply_to_message;
@@ -32,9 +31,9 @@ app.post('/hook', function(req, res){
         } else if (reply) {
             let replyText = reply.text || "";
             let userId = replyText.split(':')[0];
-            io.emit(chatId + "-" + userId, {name, text, from: 'admin'});
+            io.emit(process.env.CHAT_ID + "-" + userId, {name, text, from: 'admin'});
         } else if (text){
-            io.emit(chatId, {name, text, from: 'admin'});
+            io.emit(process.env.CHAT_ID, {name, text, from: 'admin'});
         }
 
     } catch (e) {
@@ -56,7 +55,7 @@ io.on('connection', function(client){
 
         client.on('message', function(msg) {
             messageReceived = true;
-            io.emit(chatId + "-" + userId, msg);
+            io.emit(process.env.CHAT_ID + "-" + userId, msg);
             let visitorName = msg.visitorName ? "[" + msg.visitorName + "]: " : "";
             sendTelegramMessage(null, userId + ":" + visitorName + " " + msg.text);
         });
