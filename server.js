@@ -26,7 +26,8 @@ app.post('/hook', function(req, res){
         if (text.startsWith("/start")) {
             console.log("/start chatId " + chatId);
             sendTelegramMessage(chatId,
-                "*Добро пожаловать в бот ЕГЭ-Центра* \n CHAT ID: " + chatId  
+                "*Добро пожаловать в бот ЕГЭ-Центра* \n " +
+                "Your unique chat id is `" + chatId + "`"
                 "Markdown");
         } else if (reply) {
             let replyText = reply.text || "";
