@@ -18,7 +18,7 @@ app.post('/hook', function(req, res){
     try {
         const message = req.body.message || req.body.channel_post;
         // const chatId = message.chat.id;
-        const chatId = '84626120';
+        const chatId = process.env.CHAT_ID;
         const name = message.chat.first_name || message.chat.title || "admin";
         const text = message.text || "";
         const reply = message.reply_to_message;
@@ -48,7 +48,7 @@ io.on('connection', function(client){
 
     client.on('register', function(registerMsg){
         let userId = registerMsg.userId;
-        let chatId = registerMsg.chatId;
+        let chatId = process.env.CHAT_ID;
         let messageReceived = false;
         console.log("useId " + userId + " connected to chatId " + chatId);
 
@@ -72,7 +72,7 @@ function sendTelegramMessage(chatId, text, parseMode) {
     request
         .post('https://api.telegram.org/bot' + process.env.TELEGRAM_TOKEN + '/sendMessage')
         .form({
-            "chat_id": chatId,
+            "chat_id": process.env.CHAT_ID,
             "text": text,
             "parse_mode": parseMode
         });
