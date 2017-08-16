@@ -17,8 +17,8 @@ console.log(process.env.TELEGRAM_TOKEN)
 app.post('/hook', function(req, res){
     try {
         const message = req.body.message || req.body.channel_post;
-        // const chatId = message.chat.id;
-        const chatId = process.env.CHAT_ID;
+        const chatId = message.chat.id;
+        // const chatId = process.env.CHAT_ID;
         const name = message.chat.first_name || message.chat.title || "admin";
         const text = message.text || "";
         const reply = message.reply_to_message;
